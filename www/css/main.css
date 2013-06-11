@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'munroregular';
+    src: url('../res/font/munro-webfont.eot');
+    src: url('../res/font/munro-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../res/font/munro-webfont.woff') format('woff'),
+         url('../res/font/munro-webfont.ttf') format('truetype'),
+         url('../res/font/munro-webfont.svg#munroregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0 auto;
+    background-color: black;
+    color: white;
+    font-family: Helvetica, Verdana;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.wait {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -102px;
+    text-align: center;
+    line-height: 30px;
+    width: 200px;
+    height: 30px;
+}
+
+.loading-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -102px;
+    width: 204px;
+    height: 30px;
+}
+
+.loading-text {
+    font-weight: bold;
+    font-size: 12px;
+    font-family: 'munroregular';
+    color: #2daebf;
+    animation: text-pulse 2s infinite;
+    -webkit-animation: text-pulse 2s infinite;
+}
+
+.loading-bar-container {
+    background-color: #2daebf;
+    width: 204px;
+    height: 12px;
+    animation: box-pulse 2s infinite;
+    -webkit-animation: box-pulse 2s infinite;
+}
+
+.loading-bar {
+    float: right;
+    background-color: black;
+    width: 200px;
+    height: 8px;
+    margin: 2px;
+}
+
+@keyframes text-pulse {
+    from { color: #007d9a; text-shadow: 0 0 9px #333; }
+    50% { color: #2daebf; text-shadow: 0 0 18px #2daebf; }
+    to { color: #007d9a; text-shadow: 0 0 9px #333; }
+}
+
+@-webkit-keyframes text-pulse {
+    from { color: #007d9a; -webkit-text-shadow: 0 0 9px #333; }
+    50% { color: #2daebf; -webkit-text-shadow: 0 0 18px #2daebf; }
+    to { color: #007d9a; -webkit-text-shadow: 0 0 9px #333; }
+}
+
+@keyframes box-pulse {
+    from { background-color: #007d9a; box-shadow: 0 0 9px #333; }
+    50% { background-color: #2daebf; box-shadow: 0 0 18px #2daebf; }
+    to { background-color: #007d9a; box-shadow: 0 0 9px #333; }
+}
+
+@-webkit-keyframes box-pulse {
+    from { background-color: #007d9a; -webkit-box-shadow: 0 0 9px #333; }
+    50% { background-color: #2daebf; -webkit-box-shadow: 0 0 18px #2daebf; }
+    to { background-color: #007d9a; -webkit-box-shadow: 0 0 9px #333; }
+}
+

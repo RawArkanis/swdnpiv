@@ -1,0 +1,44 @@
+/*jslint node: true */
+'use strict';
+
+var connect = require('connect'),
+    crypto = require('crypto'),
+    fs = require('fs'),
+    path = require('path'),
+    buildDir = 'www-built',
+    pagesDir = 'www-ghpages';
+
+module.exports = {
+
+    build: {
+        flags: {
+            //Does not print the build output.
+            'q': 'quiet'
+        },
+
+        run: function (d, v, namedArgs) {
+            //Remove the old dir
+            v.rm('www-built');
+
+            d.resolve(v.spawn('node', ['tools/r.js', '-o', 'tools/build.js'], {
+                useConsole: !namedArgs.quiet
+            }));
+        }
+    },
+
+    serve: function( d, v, namedArgs ) {
+        var port = 8888;
+        var base = process.cwd();
+
+        var middleware = [
+            connect.static( base ),
+            connect.directory( base )
+        ];
+        connect.logger.format( "GameServer", ("[D] server :method :url :status " +
+            ":res[content-length] - :response-time ms" ));
+        middleware.unshift( connect.logger( "GameServer" ) );
+
+        console.log( "Starting web server on port " + port + "...");
+        connect.apply( null, middleware ).listen( port );
+    }
+};

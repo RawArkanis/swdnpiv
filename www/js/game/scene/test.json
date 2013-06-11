@@ -1,0 +1,32 @@
+{
+
+    "metadata": {
+        "formatVersion": 3.2,
+        "type" : "scene"
+    },
+
+    "urlBaseType" : "relativeToHTML",
+
+    "textures": {
+
+        "skybox": {
+            "url": [
+                "res/texture/skybox/px.png",
+                "res/texture/skybox/nx.png",
+                "res/texture/skybox/py.png",
+                "res/texture/skybox/ny.png",
+                "res/texture/skybox/pz.png",
+                "res/texture/skybox/nz.png"
+            ]
+        }
+    },
+
+    "defaults": {
+        "camera": ""
+    },
+
+    "custom": {
+        "test": "lol"
+    }
+
+}
