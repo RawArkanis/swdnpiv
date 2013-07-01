@@ -7,7 +7,7 @@ define(function(require)
 
     var BaseScene = require('./base_scene');
 
-    var Skybox = require('../entitie/skybox');
+    var Skybox = require('../entity/skybox');
 
     function GameScene(manager, json)
     {
@@ -21,9 +21,9 @@ define(function(require)
 
         this._scene.add(this._camera);
 
-        var skyboxMesh = new Skybox(CONST.FAR, json.textures.skybox);
+        this._skybox = new Skybox(CONST.FAR, json.textures.skybox);
 
-        this._scene.add(skyboxMesh);
+        this._scene.add(this._skybox.mesh);
     }
 
     GameScene.prototype = {

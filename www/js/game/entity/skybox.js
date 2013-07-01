@@ -5,8 +5,12 @@ define(function(require)
     var THREE = require('three.min');
     var CONST = require('../constant');
 
+    var BaseEntity =  require('./base_entity');
+
     function Skybox(size, textures)
     {
+        BaseEntity.call(this);
+
         var textureCube = textures;
 
         var shader = THREE.ShaderLib[ "cube" ];
@@ -22,10 +26,15 @@ define(function(require)
 
         var geometry = new THREE.CubeGeometry(CONST.FAR, CONST.FAR, CONST.FAR);
 
-        var skyboxMesh = new THREE.Mesh(geometry, material);
-        
-        return skyboxMesh;
+        this.mesh = new THREE.Mesh(geometry, material);
     }
+
+    Skybox.prototype = {
+        constructor: Skybox,
+
+        update: function(delta)
+        {}
+    };
 
     return Skybox;
 });
