@@ -6,8 +6,10 @@ define(function(require)
     var CONST = require('../constant');
 
     var BaseScene = require('./base_scene');
+    var ThirdPersonCamera = require('../camera/third_person_camera');
 
     var Skybox = require('../entity/skybox');
+    var Ship = require('../entity/ship');
 
     function GameScene(manager, json)
     {
@@ -15,15 +17,14 @@ define(function(require)
 
         this._scene = new THREE.Scene();
 
-        this._camera = new THREE.PerspectiveCamera(CONST.VIEW_ANGLE, CONST.ASPECT, CONST.NEAR, CONST.FAR);
-        this._camera.position.set(0, 0, 10);
-        this._camera.lookAt(this._scene.position);
-
-        this._scene.add(this._camera);
+        this._camera = new ThirdPersonCamera();
+        this._scene.add(this._camera.internal);
 
         this._skybox = new Skybox(CONST.FAR, json.textures.skybox);
-
         this._scene.add(this._skybox.mesh);
+
+        this._ship = new Ship();
+        this._scene.add(this._ship.mesh);
     }
 
     GameScene.prototype = {
@@ -36,7 +37,7 @@ define(function(require)
 
         render: function()
         {
-            this._manager.renderer.render(this._scene, this._camera);
+            this._manager.renderer.render(this._scene, this._camera.internal);
         }
 
     };
