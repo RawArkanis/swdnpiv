@@ -5,6 +5,7 @@ define(function(require)
     var THREE = require('three.min');
     var CONST = require('../constant');
     var $ = require('jquery');
+    var TOL = require('../ext/OBJLoader');
 
     var BaseScene = require('./base_scene');
     var GameScene = require('./Game_scene');
@@ -40,15 +41,19 @@ define(function(require)
         {
             self._loaded = result;
 
+            console.log(result);
+
             setTimeout(function() {
                 $('.loading-container').remove();
                 var scene = new GameScene(self._manager, result);
 
                 self._manager.changeScene(scene);
-            }, 1000);
+            }, 500);
         };
 
         var loader = new THREE.SceneLoader();
+
+        loader.addHierarchyHandler("obj", TOL.OBJLoader);
 
         loader.callbackProgress = callbackProgress;
 

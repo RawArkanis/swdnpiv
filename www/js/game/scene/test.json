@@ -7,6 +7,29 @@
 
     "urlBaseType" : "relativeToHTML",
 
+    "objects": {
+
+        "ship" : {
+            "type": "obj",
+            "url" : "res/object/ship/space_frigate_6.obj",
+            "material": "basic_gray",
+            "position": [0, 0, 0],
+            "rotation": [0, 0, 0],
+            "scale": [5, 5, 5],
+            "visible": true
+        }
+
+    },
+
+    "materials": {
+
+        "basic_gray": {
+            "type": "MeshBasicMaterial",
+            "parameters": { "color": 6710886, "wireframe": true }
+        }
+
+    },
+
     "textures": {
 
         "skybox": {

@@ -24,7 +24,7 @@ define(function(require)
         this._scene.add(this._skybox.mesh);
 
         this._ship = new Ship();
-        this._scene.add(this._ship.mesh);
+        //this._scene.add(this._ship.mesh);
     }
 
     GameScene.prototype = {

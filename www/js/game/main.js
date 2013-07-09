@@ -2,6 +2,33 @@ define(function (require)
 {
     'use strict';
 
+    if (!window.requestAnimationFrame)
+    {
+        window.requestAnimationFrame = (function()
+        {
+            return window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function(/* function FrameRequestCallback */ callback, /* DOMElement Element */ element)
+                {
+                    return window.setTimeout(callback, 1000 / 60);
+                };
+        })();
+    }
+
+    if (!window.cancelRequestAnimationFrame)
+    {
+        window.cancelRequestAnimationFrame = (function()
+        {
+            return window.webkitCancelRequestAnimationFrame ||
+                window.mozCancelRequestAnimationFrame ||
+                window.oCancelRequestAnimationFrame ||
+                window.msCancelRequestAnimationFrame ||
+                clearTimeout
+        })();
+    }
+
     var THREE = require('three.min');
     var CONST = require('./constant');
     var Stats = require('stats');
@@ -45,7 +72,7 @@ define(function (require)
     {
         fps.begin();
 
-        requestAnimationFrame(run);
+        window.requestAnimationFrame(run);
 
         update(1.0);
 
