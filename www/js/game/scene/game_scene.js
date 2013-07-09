@@ -25,6 +25,8 @@ define(function(require)
 
         this._ship = new Ship();
         //this._scene.add(this._ship.mesh);
+
+        this._scene.add(json.objects.ship);
     }
 
     GameScene.prototype = {
