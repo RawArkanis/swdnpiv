@@ -23,7 +23,7 @@
             "type": "DirectionalLight",
             "direction": [1, 1, -1],
             "color": 16777215,
-            "intensity": 1.0
+            "intensity": 1.5
         }
 
     },
@@ -37,7 +37,7 @@
                 "bumpMap": "ship_bump",
                 "specularMap": "ship_specular",
                 "bumpMap": "ship_bump",
-                "bumpScale": 1
+                "bumpScale": 0.08
             }
         }
 

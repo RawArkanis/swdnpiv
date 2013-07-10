@@ -39,7 +39,7 @@ define(function(require)
             this._angle += 0.01;
 
             var distance = 10,
-                height = -10;
+                height = 10;
 
             var target = new THREE.Vector3(0, 0, 0);
 

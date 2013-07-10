@@ -11,7 +11,7 @@ define(function(require)
     {
         BaseEntity.call(this);
 
-        //obj.children[0].geometry.faceVertexUvs[1] = obj.children[0].geometry.faceVertexUvs[0];
+        obj.children[0].geometry.faceVertexUvs[1] = obj.children[0].geometry.faceVertexUvs[0];
 
         this.mesh = obj;
     }
