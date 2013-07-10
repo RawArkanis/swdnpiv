@@ -7,15 +7,13 @@ define(function(require)
 
     var BaseEntity =  require('./base_entity');
 
-    function Ship()
+    function Ship(obj)
     {
         BaseEntity.call(this);
 
-        var material = new THREE.MeshBasicMaterial();
+        //obj.children[0].geometry.faceVertexUvs[1] = obj.children[0].geometry.faceVertexUvs[0];
 
-        var geometry = new THREE.CubeGeometry(1, 1, 1);
-
-        this.mesh = new THREE.Mesh(geometry, material);
+        this.mesh = obj;
     }
 
     Ship.prototype = {

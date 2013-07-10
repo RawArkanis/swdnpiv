@@ -79,7 +79,6 @@
     },
 
     "defaults": {
-        "camera": "",
         "fog": "black"
     },
 
