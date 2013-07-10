@@ -26,7 +26,12 @@ define(function(require)
         this._ship = new Ship();
         //this._scene.add(this._ship.mesh);
 
+        //json.objects.ship.children[0].geometry.faceVertexUvs[1] = json.objects.ship.children[0].geometry.faceVertexUvs[0];
+
         this._scene.add(json.objects.ship);
+        this._scene.add(json.objects.sun_light);
+
+        this._angle = 0.0;
     }
 
     GameScene.prototype = {
@@ -34,7 +39,17 @@ define(function(require)
 
         update: function(delta)
         {
-            
+            this._angle += 0.01;
+
+            var distance = 10,
+                height = 10;
+
+            var target = new THREE.Vector3(0, 0, 0);
+
+            this._camera.internal.position.x = Math.sin(this._angle) * distance + target.x;
+            this._camera.internal.position.y = Math.cos(this._angle) * distance + target.y;
+            this._camera.internal.position.z = height + target.z;
+            this._camera.internal.lookAt(target);
         },
 
         render: function()

@@ -12,20 +12,33 @@
         "ship" : {
             "type": "obj",
             "url" : "res/object/ship/space_frigate_6.obj",
-            "material": "basic_gray",
+            "material": "ship",
             "position": [0, 0, 0],
             "rotation": [0, 4.71, 0],
             "scale": [0.08, 0.08, 0.08],
             "visible": true
+        },
+
+        "sun_light": {
+            "type": "DirectionalLight",
+            "direction": [1, 1, -1],
+            "color": 16777215,
+            "intensity": 1.0
         }
 
     },
 
     "materials": {
 
-        "basic_gray": {
-            "type": "MeshBasicMaterial",
-            "parameters": { "color": 16777215, "wireframe": true }
+        "ship": {
+            "type": "MeshPhongMaterial",
+            "parameters": {
+                "map": "ship_color",
+                "bumpMap": "ship_bump",
+                "specularMap": "ship_specular",
+                "bumpMap": "ship_bump",
+                "bumpScale": 1
+            }
         }
 
     },
@@ -34,18 +47,40 @@
 
         "skybox": {
             "url": [
-                "res/texture/skybox/px.png",
-                "res/texture/skybox/nx.png",
-                "res/texture/skybox/py.png",
-                "res/texture/skybox/ny.png",
-                "res/texture/skybox/pz.png",
-                "res/texture/skybox/nz.png"
+                "res/texture/skybox/green_right1.png",
+                "res/texture/skybox/green_left2.png",
+                "res/texture/skybox/green_top3.png",
+                "res/texture/skybox/green_bottom4.png",
+                "res/texture/skybox/green_front5.png",
+                "res/texture/skybox/green_back6.png"
             ]
+        },
+
+        "ship_color": {
+            "url": "res/texture/ship/space_frigate_6_color.jpg",
+            "anisotropy": 4
+        },
+
+        "ship_bump": {
+            "url": "res/texture/ship/space_frigate_6_bump.jpg",
+            "anisotropy": 4
+        },
+
+        "ship_illumination": {
+            "url": "res/texture/ship/space_frigate_6_illumination.jpg",
+            "anisotropy": 4
+        },
+
+        "ship_specular": {
+            "url": "res/texture/ship/space_frigate_6_specular.jpg",
+            "anisotropy": 4
         }
+
     },
 
     "defaults": {
-        "camera": ""
+        "camera": "",
+        "fog": "black"
     },
 
     "custom": {
